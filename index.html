@@ -1,47 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charity: Water</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background: url('images/Madagascar_2019_CG-4013.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      z-index: 10;
+    }
+
+    .menu-icon {
+      font-size: 2rem;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      color: #fff;
+    }
+
+    .logo span {
+      background: #fdd835;
+      color: black;
+      padding: 0.2rem 0.4rem;
+      margin-right: 0.4rem;
+      border-radius: 3px;
+      font-weight: bold;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.9);
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+    }
+
+    .mobile-menu a {
+      color: #fff;
+      text-decoration: none;
+      margin: 1rem 0;
+      font-size: 1.2rem;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      margin-top: 100px;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    }
+
+    .hero-content p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      color: #f0f0f0;
+    }
+
+    .btn {
+      background: #fdd835;
+      color: black;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-size: 1.1rem;
+    }
+
+    @media (min-width: 600px) {
+      .menu-icon { display: none; }
+      .mobile-menu { display: flex !important; flex-direction: row; background: none; position: static; }
+      .mobile-menu a { margin: 0 1rem; }
+      .hero-content h1 { font-size: 3rem; }
+      .hero-content p { font-size: 1.5rem; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+  <section class="hero">
+    <div class="overlay"></div>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+    <div class="navbar">
+      <div class="menu-icon" onclick="toggleMenu()">☰</div>
+      <div class="logo"><span>✳</span> charity: water</div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Projects</a>
+        <a href="#">Donate</a>
+      </div>
+    </div>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+    <div class="hero-content">
+      <h1>Clean water for all, not just for some—together we can end the crisis.</h1>
+      <p>Act now—every drop counts</p>
+      <button class="btn">Donate</button>
+    </div>
+  </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      if (menu.style.display === 'flex') {
+        menu.style.display = 'none';
+      } else {
+        menu.style.display = 'flex';
+      }
+    }
+  </script>
 </body>
 </html>
